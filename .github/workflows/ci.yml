@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    
+  pull_request: 
+  workflow_dispatch: 
+
 
 jobs:
   build:
@@ -16,10 +20,6 @@ jobs:
         with:
           node-version: 20
 
-      - run: pwd
+      - run: npm install
 
-      - run: ls
-
-      - run : node -v
-
-      - run : npm -v
+      - run: npm run build
