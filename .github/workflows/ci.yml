@@ -4,18 +4,16 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: 
-
 
 jobs:
-  frontend:
-    runs-on: ubuntu-latest
 
-    steps:
-      - run: echo "Frontend App"
-  
-  backend:
+  build:
     runs-on: ubuntu-latest
-    
+    strategy:
+      matrix:
+        node-version: [18,20,22]
+  
     steps:
-      - run: echo "Backend App"
+      - run: echo ${{ matrix.node-version }}      
+
+
